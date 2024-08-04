@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view_controllers.mainSceneController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Button fx:id="pendingTasksBtn" layoutX="232.0" layoutY="243.0" mnemonicParsing="false" onAction="#onActionPendingTasks" prefHeight="139.0" prefWidth="220.0" text="Pending Tasks" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
