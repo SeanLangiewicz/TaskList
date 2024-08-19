@@ -46,8 +46,12 @@ public class mainTasks
         return isComplete;
     }
 
-    public void setComplete(boolean complete) {
+    public void setComplete(boolean complete)
+    {
+
+
         isComplete = complete;
+
     }
 
     public mainTasks(int id, String name, String description, String note, boolean isComplete) {
@@ -57,19 +61,6 @@ public class mainTasks
         this.note = note;
         this.isComplete = isComplete;
     }
-
-
-
-
-      public Boolean getIsComplete()
-    {
-
-        return isComplete;
-    }
-
-
-
-
 
 
 

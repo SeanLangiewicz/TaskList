@@ -1,4 +1,4 @@
-package view_controllers;
+package view_controllers.MainScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +19,7 @@ public class mainSceneController
     {
 
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/view_controllers/viewMaintasks.fxml"));
+        scene = FXMLLoader.load(getClass().getResource("/view_controllers/MainTask/viewMaintasks.fxml"));
         stage.setTitle("Screen Selection Screen");
         stage.setScene(new Scene(scene));
         stage.show();

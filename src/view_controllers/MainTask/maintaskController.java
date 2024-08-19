@@ -1,26 +1,34 @@
-package view_controllers;
+package view_controllers.MainTask;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.mainTasks;
 import DAO.mainTaskListImpl;
 
 
+
 public class maintaskController implements Initializable
 {
+    Parent scene;
+    Stage stage;
 
     private static ObservableList<mainTasks> mainTaskList = FXCollections.observableArrayList();
 
@@ -41,7 +49,7 @@ public class maintaskController implements Initializable
     private TableColumn<?, ?> tblNote;
 
     @FXML
-    private TableColumn<mainTasks, Boolean> tblCompleted;
+    private TableColumn<mainTasks, String> tblCompleted;
 
     @FXML
     private Button createsubTaskBtn;
@@ -63,7 +71,14 @@ public class maintaskController implements Initializable
     }
 
     @FXML
-    void onActionDeleteTask(ActionEvent event) {
+    void onActionDeleteTask(ActionEvent event) throws IOException
+    {
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/Test/test.fxml"));
+        stage.setTitle("Screen Selection Screen");
+        stage.setScene(new Scene(scene));
+        stage.show();
+
 
     }
 
@@ -71,12 +86,18 @@ public class maintaskController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+
         try
         {
+
+
+           mainTaskList.addAll(mainTaskListImpl.selectAllTasks());
             taskTblView.getItems().clear();
             mainTaskList.clear();
 
             mainTaskList.addAll(mainTaskListImpl.selectAllTasks());
+
+
 
 
             tblID.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -84,16 +105,17 @@ public class maintaskController implements Initializable
             tblDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
             tblNote.setCellValueFactory(new PropertyValueFactory<>("note"));
 
-
-          // tblCompleted.setCellValueFactory(new PropertyValueFactory<mainTasks,Boolean>("isComplete"));
-
-            TableColumn<mainTasks,Boolean> genColumn = new TableColumn<>("isComplete");
-
-
+            tblCompleted.setCellValueFactory(cellData ->
+            {
+                boolean isComplete = cellData.getValue().isComplete();
+                return new javafx.beans.property.SimpleStringProperty(isComplete ? "Yes" : "No");
+            });
 
 
 
             taskTblView.setItems(mainTaskList);
+
+
 
 
 
