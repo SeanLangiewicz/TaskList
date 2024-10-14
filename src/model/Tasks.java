@@ -1,8 +1,6 @@
 package model;
 
-import java.sql.Date;
-
-public class mainTasks
+public class Tasks
 {
  int id;
  String name;
@@ -54,7 +52,7 @@ public class mainTasks
 
     }
 
-    public mainTasks(int id, String name, String description, String note, boolean isComplete) {
+    public Tasks(int id, String name, String description, String note, boolean isComplete) {
         this.id = id;
         this.name = name;
         this.description = description;

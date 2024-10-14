@@ -2,7 +2,7 @@ package DAO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.mainTasks;
+import model.Tasks;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,10 +13,10 @@ import java.sql.SQLException;
 public class mainTaskListImpl
 {
 
-    public static ObservableList<mainTasks> mainTaskList = FXCollections.observableArrayList();
-    public static ObservableList<mainTasks> selectAllTasks() throws SQLException
+    public static ObservableList<Tasks> mainTaskList = FXCollections.observableArrayList();
+    public static ObservableList<Tasks> selectAllTasks() throws SQLException
     {
-        ObservableList<mainTasks> allMainTasks = FXCollections.observableArrayList();
+        ObservableList<Tasks> allTasks = FXCollections.observableArrayList();
 
         String sqlStatement = "Select * from primarytbl";
 
@@ -37,16 +37,16 @@ public class mainTaskListImpl
             boolean isComplete = rs.getBoolean("isComplete");
 
 
-            mainTasks addTasks = new mainTasks(id,name,description,note,isComplete);
+            Tasks addTasks = new Tasks(id,name,description,note,isComplete);
 
-            allMainTasks.add(addTasks);
-            mainTaskList.addAll(allMainTasks);
+            allTasks.add(addTasks);
+            mainTaskList.addAll(allTasks);
 
 
         }
 
         DBConnection.closeConnection();
-        return allMainTasks;
+        return allTasks;
 
     }
 

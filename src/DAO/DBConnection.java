@@ -64,8 +64,9 @@ public class DBConnection
     public static void closeConnection() throws SQLException {
         if(conn !=null)
         {
-            conn.close();
+
             System.out.println("DB Connection closed");
+            conn.close();
         }
     }
 

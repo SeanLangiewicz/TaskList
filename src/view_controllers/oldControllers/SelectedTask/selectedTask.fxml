@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view_controllers.oldControllers.SelectedTask.selectedTaskController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="44.0" layoutY="72.0" prefHeight="187.0" prefWidth="245.0">
+               <children>
+                  <Label text="Task Name" />
+                  <TextField fx:id="taskNameTxtFld" prefHeight="66.0" prefWidth="131.0" promptText="Name of Task" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="308.0" layoutY="72.0" prefHeight="187.0" prefWidth="245.0">
+               <children>
+                  <Label text="Label" />
+                  <TextField fx:id="taskDescriptionTxtFld" prefHeight="66.0" prefWidth="131.0" promptText="Description of the task" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="44.0" layoutY="218.0" prefHeight="187.0" prefWidth="245.0">
+               <children>
+                  <Label text="Note" />
+                  <TextField fx:id="taskNoteTxtFld" prefHeight="66.0" prefWidth="131.0" promptText="Note of the task" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="342.0" layoutY="218.0" prefHeight="187.0" prefWidth="245.0">
+               <children>
+                  <Label text="Label" />
+                  <ComboBox prefWidth="150.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
